@@ -22,8 +22,8 @@ while True:
         print("You are quitting")
         break
     
-    elif len(tokens) < 2:
-        print("Not enough parameters entered")
+    # elif len(tokens) < 2:
+    #     print("Not enough parameters entered")
 
 
     """Assigned token indexes (operators and num)"""
@@ -35,9 +35,46 @@ while True:
 
     elif len(tokens) == 3:
         operator = tokens[0]
-        num1 = tokens[1]
-        num2 = tokens[2]
-        print(operator, num1, num2)
+        num1 = float(tokens[1])
+        num2 = float(tokens[2])
+        
+        if operator == "+":
+            result = add(num1,num2)
+        elif operator == "-":
+            result = subtract(num1,num2)
+        elif operator == "*":
+            result = multiply(num1, num2)
+        elif operator == "/":
+            result = divide(num1, num2)
+        elif operator == "pow" :
+            result = power(num1,num2)
+        elif operator == "mod":
+            result = mod(num1,num2)
+        print(result)
+
+
+
+
+
+# add(float, float) → float
+
+# Return the sum of the two inputs.
+# subtract(float, float) → float
+# Return the second number subtracted from the first.
+# multiply(float, float) → float
+# Multiply the two inputs together and return the result.
+# divide(float, float) → float
+# Divide the first input by the second and return the result.
+# square(float) → float
+# Return the square of the input.
+# cube(float) → float
+# Return the cube of the input.
+# power(float, float) → float
+# Raise the first input to the power of the second and return the result.
+# mod(float, float) → float
+# Divide the first input by the second input and return the remainder.
+
+
 
 
 
