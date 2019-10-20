@@ -3,23 +3,51 @@
 
 """repeat forever"""
 
+from arithmetic1 import *
+"""import arithmetic functions for calculator"""
+
+
 while True:
     """read input"""
     input_string = input(">")
+    print(input_string)
 
     """tokenize input"""
-    tokens = input_string.split(" ")
+    tokens = (input_string.split(" "))
 
-    if len(tokens) < 2:
-        print("Not enough parameters")
-        
-    if the first token is "q":
+    print(tokens)
+
+    """Assigned token indexes (operators and num)"""
+    operator = tokens[0]
+    num1 = tokens[1]
+
+    """If token is Q - quitting"""
+    if tokens[0] == "q":
+        print("You are quitting")
         break
-    
 
+    """assign 0 to token [3] if less than 2 numbers""" 
+    if len(tokens < 3):
+        num2 = 0
 
     else:
-        decide which math function to call based on first token
+        num2 = tokens[2] 
+
+
+    
+
+    # elif len(tokens) < 2:
+    #     print("Not enough parameters")
+
+    # elif tokens[0] == "+":
+    #     print(add(tokens[1], tokens[2]))
+
+    # elif tokens[0] == "-":
+    #     print(tokens[1] - tokens[2]) 
+
+    #     else:
+    # # #     decide which math function to call based on first token
+
 
 
 
@@ -126,8 +154,5 @@ while True:
 #         result = "Please enter an operator followed by two integers."
 
 #     print(result)
-
-
-
 
 
