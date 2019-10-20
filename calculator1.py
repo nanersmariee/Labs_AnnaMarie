@@ -9,7 +9,7 @@ from arithmetic1 import *
 
 while True:
     """read input"""
-    input_string = input(">")
+    input_string = input("Please enter parameters> ")
     print(input_string)
 
     """tokenize input"""
@@ -17,27 +17,45 @@ while True:
 
     print(tokens)
 
-    """Assigned token indexes (operators and num)"""
-    operator = tokens[0]
-    num1 = tokens[1]
-
     """If token is Q - quitting"""
     if tokens[0] == "q":
         print("You are quitting")
         break
-
-    """assign 0 to token [3] if less than 2 numbers""" 
-    if len(tokens < 3):
-        num2 = 0
-
-    else:
-        num2 = tokens[2] 
-
-
     
+    elif len(tokens) < 2:
+        print("Not enough parameters entered")
 
-    # elif len(tokens) < 2:
-    #     print("Not enough parameters")
+
+    """Assigned token indexes (operators and num)"""
+    if len(tokens) == 2:
+        operator = tokens[0]
+        num1 = tokens[1]
+        num2 = 0
+        print(operator, num1, num2)
+
+    elif len(tokens) == 3:
+        operator = tokens[0]
+        num1 = tokens[1]
+        num2 = tokens[2]
+        print(operator, num1, num2)
+
+
+
+
+    # """assign 0 to token [3] if less than 2 numbers""" 
+    # elif len(tokens) < 3:
+    #     num2 = 0
+
+    # else:
+    #     num2 = (tokens[2]) 
+
+
+
+
+
+
+
+
 
     # elif tokens[0] == "+":
     #     print(add(tokens[1], tokens[2]))
