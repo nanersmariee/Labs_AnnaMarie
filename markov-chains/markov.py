@@ -69,11 +69,26 @@ def make_text(chains):
     start = choice(list(chains.keys()))
     words.append(start[0])
     words.append(start[1])
+    
 
-    # return " ".join(words)
+    #loop to get keys
+    while True:
+        try:
+            key = (words[-2], words[-1])
+            next_word = choice(chains[key])
+            words.append(next_word)
+        except KeyError:
+            break
+
+        #choice for 3rd word
+        #find 2nd and 3rd word as key in dict
+        #choice for 4th word
+        #loop
+
+    return " ".join(words)
 
 
-input_path = "green-eggs.txt"
+input_path = "gettysburg.txt"
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
