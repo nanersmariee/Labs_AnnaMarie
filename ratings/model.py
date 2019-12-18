@@ -32,8 +32,7 @@ class User(db.Model):
 
         return f"<User user_id={self.user_id} email={self.email}>"
 
-    #db.session.commit()
-    #why is this breaking the code?
+  
 class Movie(db.Model):
     """Movies in ratings website"""
 
