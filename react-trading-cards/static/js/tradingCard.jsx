@@ -1,53 +1,53 @@
-const tradingCardData = [
-  {
-    name: 'Balloonicorn',
-    skill: 'video games',
-    imgUrl: '/static/img/balloonicorn.jpg'
-  },
+// const tradingCardData = [
+//   {
+//     name: 'Balloonicorn',
+//     skill: 'video games',
+//     imgUrl: '/static/img/balloonicorn.jpg'
+//   },
 
-  {
-    name: 'Float',
-    skill: 'baking pretzels',
-    imgUrl: '/static/img/float.jpg'
-  },
+//   {
+//     name: 'Float',
+//     skill: 'baking pretzels',
+//     imgUrl: '/static/img/float.jpg'
+//   },
 
-  {
-    name: 'Llambda',
-    skill: 'knitting scarves',
-    imgUrl: '/static/img/llambda.jpg'
-  },
+//   {
+//     name: 'Llambda',
+//     skill: 'knitting scarves',
+//     imgUrl: '/static/img/llambda.jpg'
+//   },
 
 
-  {
-    name: 'Off-By-One',
-    skill: 'climbing mountains',
-    imgUrl: '/static/img/off-by-one.jpg'
-  },
+//   {
+//     name: 'Off-By-One',
+//     skill: 'climbing mountains',
+//     imgUrl: '/static/img/off-by-one.jpg'
+//   },
 
-  {
-    name: 'Seed.py',
-    skill: 'making curry dishes',
-    imgUrl: '/static/img/seedpy.jpg'
-  },
+//   {
+//     name: 'Seed.py',
+//     skill: 'making curry dishes',
+//     imgUrl: '/static/img/seedpy.jpg'
+//   },
 
-  {
-    name: 'Polymorphism',
-    skill: 'costumes',
-    imgUrl: '/static/img/polymorphism.jpg'
-  },
+//   {
+//     name: 'Polymorphism',
+//     skill: 'costumes',
+//     imgUrl: '/static/img/polymorphism.jpg'
+//   },
 
-  {
-    name: 'Short Stack Overflow',
-    skill: 'ocean animal trivia',
-    imgUrl: '/static/img/shortstack-overflow.jpg'
-  },
+//   {
+//     name: 'Short Stack Overflow',
+//     skill: 'ocean animal trivia',
+//     imgUrl: '/static/img/shortstack-overflow.jpg'
+//   },
 
-  {
-    name: 'Merge',
-    skill: 'bullet journaling',
-    imgUrl: '/static/img/merge.jpg'
-  }
-];
+//   {
+//     name: 'Merge',
+//     skill: 'bullet journaling',
+//     imgUrl: '/static/img/merge.jpg'
+//   }
+// ];
 
 class TradingCard extends React.Component {
   render() {
@@ -63,12 +63,36 @@ class TradingCard extends React.Component {
 
 
 class TradingCardContainer extends React.Component {
+  constructor() {
+    super();
+
+    this.state = { cards: [] }; //Set initial value
+    this.updateCards = this.updateCards.bind(this);
+  }
+
+  updateCards() {
+    const floatCard = {
+      name: 'Float',
+      skill: 'baking pretzels',
+      imgUrl: '/static/img/float.jpg'
+    };
+
+    this.setState({
+      cards: [ floatCard ]
+    });
+  }
+
+  componentDidMount() {
+    this.updateCards();
+  }
+
   render() {
     const tradingCards = [];
 
-    for (const currentCard of tradingCardData){
+    for (const currentCard of this.state.cards){
       tradingCards.push(
         <TradingCard
+          key={currentCard.name}
           name={currentCard.name}
           skill={currentCard.skill}
           imgUrl={currentCard.imgUrl}
@@ -81,7 +105,7 @@ class TradingCardContainer extends React.Component {
         {tradingCards}
       </div>
     );
-  }
+  }  
 }
 
 ReactDOM.render(
